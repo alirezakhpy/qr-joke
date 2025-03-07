@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Jokes</title>
+    <script>
+        async function fetchJoke() {
+            try {
+                const response = await fetch("http://localhost:3000/joke");
+                const data = await response.json();
+                document.getElementById("result").innerHTML = data.message || data.joke;
+            } catch (error) {
+                document.getElementById("result").innerHTML = "Error fetching joke.";
+            }
+        }
+
+        async function changeContext() {
+            const context = prompt("Enter the type of jokes you want (e.g., 'dark humor', 'tech jokes'):");
+            if (context) {
+                await fetch("http://localhost:3000/set-context", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ context })
+                });
+                alert("Joke context updated!");
+            }
+        }
+    </script>
+</head>
+<body onload="fetchJoke()">
+    <h1>Scan QR & Get a Joke!</h1>
+    <p id="result">Loading...</p>
+    <button onclick="changeContext()">Change Joke Type</button>
+</body>
+</html>
