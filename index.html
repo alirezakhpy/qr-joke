@@ -18,7 +18,7 @@
         async function changeContext() {
             const context = prompt("Enter the type of jokes you want (e.g., 'dark humor', 'tech jokes'):");
             if (context) {
-                await fetch("http://localhost:3000/set-context", {
+                await fetch("https://qr-code-joke.onrender.com", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ context })
