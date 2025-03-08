@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.message-box {
+    background-color: red;
+    padding: 50px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.message {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    margin: 20px 0;
+    line-height: 1.5;
+}
+
+.flashing-text {
+    animation: flashing 1.5s infinite;
+    font-size: 20px;
+    color: yellow;
+    font-weight: bold;
+}
+
+@keyframes flashing {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.change-context-btn {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.change-context-btn:hover {
+    background-color: darkred;
+}
+
+@media (max-width: 768px) {
+    .message-box {
+        padding: 30px;
+    }
+
+    .message {
+        font-size: 20px;
+    }
+
+    .flashing-text {
+        font-size: 18px;
+    }
+
+    .change-context-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
