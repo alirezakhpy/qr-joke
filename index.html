@@ -7,7 +7,7 @@
     <script>
         async function fetchJoke() {
             try {
-                const response = await fetch("https://qr-code-joke.onrender.com");
+                const response = await fetch("https://qr-code-joke.onrender.com/joke");
                 const data = await response.json();
                 document.getElementById("result").innerHTML = data.message || data.joke;
             } catch (error) {
@@ -18,7 +18,7 @@
         async function changeContext() {
             const context = prompt("Enter the type of jokes you want (e.g., 'dark humor', 'tech jokes'):");
             if (context) {
-                await fetch("https://qr-code-joke.onrender.com", {
+                await fetch("https://qr-code-joke.onrender.com/set-context", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ context })
